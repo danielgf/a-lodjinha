@@ -14,6 +14,17 @@ final class HomePresenter: Presenter {
 
 // MARK: - HomePresenter API
 extension HomePresenter: HomePresenterApi {
+    func getBanner() {
+        interactor.requestBanner()
+    }
+    
+    func didFinishLoadingBaner(bannerViewModel: BannersListViewModel) {
+        view.updateBanners(bannerViewModel: bannerViewModel)
+    }
+    
+    func didFailLoadingBanner() {
+        view.showAlert(message: "error")
+    }
 }
 
 // MARK: - Home Viper Components

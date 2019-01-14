@@ -14,12 +14,18 @@ protocol HomeRouterApi: RouterProtocol {
 
 //MARK: - HomeView API
 protocol HomeViewApi: UserInterfaceProtocol {
+    func showAlert(message: String)
+    func updateBanners(bannerViewModel: BannersListViewModel)
 }
 
 //MARK: - HomePresenter API
 protocol HomePresenterApi: PresenterProtocol {
+    func getBanner()
+    func didFinishLoadingBaner(bannerViewModel: BannersListViewModel)
+    func didFailLoadingBanner()
 }
 
 //MARK: - HomeInteractor API
 protocol HomeInteractorApi: InteractorProtocol {
+    func requestBanner()
 }

@@ -14,6 +14,11 @@ final class HomeInteractor: Interactor {
 
 // MARK: - HomeInteractor API
 extension HomeInteractor: HomeInteractorApi {
+    func requestBanner() {
+        HomeRemoteDataManager.getBanner { (banners) in
+            banners.count == 0 ? self.presenter.didFailLoadingBanner() : self.presenter.didFinishLoadingBaner(bannerViewModel: BannersListViewModel(banners))
+        }
+    }
 }
 
 // MARK: - Interactor Viper Components Api

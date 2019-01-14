@@ -50,6 +50,17 @@
 		9C31DADB21EA19FE00FA7F29 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DADA21EA19FE00FA7F29 /* HexColor.swift */; };
 		9C31DADD21EA1A8000FA7F29 /* ServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DADC21EA1A8000FA7F29 /* ServiceConstants.swift */; };
 		9C31DAE021EA372C00FA7F29 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C31DADF21EA372C00FA7F29 /* Pacifico-Regular.ttf */; };
+		9C31DAE421EB7F5700FA7F29 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DAE221EB7F5700FA7F29 /* CategoryCell.swift */; };
+		9C31DAE521EB7F5700FA7F29 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C31DAE321EB7F5700FA7F29 /* CategoryCell.xib */; };
+		9C31DAE721EB802900FA7F29 /* UITableViewCell+UICollectionViewCell+RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DAE621EB802900FA7F29 /* UITableViewCell+UICollectionViewCell+RegisterCell.swift */; };
+		9C31DAEC21EBE5BD00FA7F29 /* HomeRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DAEB21EBE5BD00FA7F29 /* HomeRemoteDataManager.swift */; };
+		9C31DAF121EBE8CE00FA7F29 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DAF021EBE8CE00FA7F29 /* GenericResponse.swift */; };
+		9C31DAF421EBEA4200FA7F29 /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DAF221EBEA4200FA7F29 /* Categoria.swift */; };
+		9C31DAF521EBEA4200FA7F29 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DAF321EBEA4200FA7F29 /* Payload.swift */; };
+		9C31DAF721EBEAAF00FA7F29 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DAF621EBEAAF00FA7F29 /* NetworkManager.swift */; };
+		9C31DAFB21EBFA4300FA7F29 /* BannersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DAFA21EBFA4300FA7F29 /* BannersListViewModel.swift */; };
+		9C31DAFD21EBFA5300FA7F29 /* BannersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DAFC21EBFA5300FA7F29 /* BannersViewModel.swift */; };
+		9C31DB0221ECAFC000FA7F29 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DB0121ECAFC000FA7F29 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +131,17 @@
 		9C31DADA21EA19FE00FA7F29 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		9C31DADC21EA1A8000FA7F29 /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
 		9C31DADF21EA372C00FA7F29 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		9C31DAE221EB7F5700FA7F29 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		9C31DAE321EB7F5700FA7F29 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		9C31DAE621EB802900FA7F29 /* UITableViewCell+UICollectionViewCell+RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+UICollectionViewCell+RegisterCell.swift"; sourceTree = "<group>"; };
+		9C31DAEB21EBE5BD00FA7F29 /* HomeRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemoteDataManager.swift; sourceTree = "<group>"; };
+		9C31DAF021EBE8CE00FA7F29 /* GenericResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
+		9C31DAF221EBEA4200FA7F29 /* Categoria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
+		9C31DAF321EBEA4200FA7F29 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		9C31DAF621EBEAAF00FA7F29 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9C31DAFA21EBFA4300FA7F29 /* BannersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersListViewModel.swift; sourceTree = "<group>"; };
+		9C31DAFC21EBFA5300FA7F29 /* BannersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersViewModel.swift; sourceTree = "<group>"; };
+		9C31DB0121ECAFC000FA7F29 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		A4574858438B357122B42472 /* Pods-A Lodjinha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Lodjinha.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Lodjinha/Pods-A Lodjinha.release.xcconfig"; sourceTree = "<group>"; };
 		C6961FFBF071B896C68438D2 /* Pods-A LodjinhaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A LodjinhaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A LodjinhaTests/Pods-A LodjinhaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDBF172D0AC9A809EE413478 /* Pods-A Lodjinha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Lodjinha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Lodjinha/Pods-A Lodjinha.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +212,7 @@
 		9C31DA5021E92E7C00FA7F29 /* A Lodjinha */ = {
 			isa = PBXGroup;
 			children = (
+				9C31DAED21EBE89600FA7F29 /* Common */,
 				9C31DAD921EA19E500FA7F29 /* Constants */,
 				9C31DA9421E9324500FA7F29 /* Application */,
 				9C31DA9621E9329600FA7F29 /* Core */,
@@ -264,6 +287,7 @@
 				9C31DA9A21E9329600FA7F29 /* String+Localized.swift */,
 				9C31DAAE21E93D1000FA7F29 /* UIViewController+UINavigation.swift */,
 				9C31DAD721EA15FA00FA7F29 /* UIColor+HexDecimal.swift */,
+				9C31DAE621EB802900FA7F29 /* UITableViewCell+UICollectionViewCell+RegisterCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +307,9 @@
 		9C31DABB21E948BC00FA7F29 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9C31DAEA21EBE58900FA7F29 /* Data Manager */,
+				9C31DAE821EBE57D00FA7F29 /* ViewModel */,
+				9C31DAE121EB7F3700FA7F29 /* Cell */,
 				9C31DABC21E948DE00FA7F29 /* Home.storyboard */,
 				9C31DABD21E948DE00FA7F29 /* HomePresenter.swift */,
 				9C31DABE21E948DE00FA7F29 /* HomeRouter.swift */,
@@ -321,6 +348,68 @@
 				9C31DADF21EA372C00FA7F29 /* Pacifico-Regular.ttf */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		9C31DAE121EB7F3700FA7F29 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9C31DAE221EB7F5700FA7F29 /* CategoryCell.swift */,
+				9C31DAE321EB7F5700FA7F29 /* CategoryCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9C31DAE821EBE57D00FA7F29 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9C31DAFA21EBFA4300FA7F29 /* BannersListViewModel.swift */,
+				9C31DAFC21EBFA5300FA7F29 /* BannersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9C31DAEA21EBE58900FA7F29 /* Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9C31DAEB21EBE5BD00FA7F29 /* HomeRemoteDataManager.swift */,
+			);
+			path = "Data Manager";
+			sourceTree = "<group>";
+		};
+		9C31DAED21EBE89600FA7F29 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9C31DAEF21EBE8B900FA7F29 /* Managers */,
+				9C31DAEE21EBE8B200FA7F29 /* Model */,
+				9C31DB0021ECAF8600FA7F29 /* Helpers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9C31DAEE21EBE8B200FA7F29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C31DAF021EBE8CE00FA7F29 /* GenericResponse.swift */,
+				9C31DAF221EBEA4200FA7F29 /* Categoria.swift */,
+				9C31DAF321EBEA4200FA7F29 /* Payload.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C31DAEF21EBE8B900FA7F29 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9C31DAF621EBEAAF00FA7F29 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9C31DB0021ECAF8600FA7F29 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9C31DB0121ECAFC000FA7F29 /* LoadingView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F3345585DC9F8113CE8C672E /* Pods */ = {
@@ -445,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C31DA5C21E92E7D00FA7F29 /* LaunchScreen.storyboard in Resources */,
+				9C31DAE521EB7F5700FA7F29 /* CategoryCell.xib in Resources */,
 				9C31DACF21E948FD00FA7F29 /* About.storyboard in Resources */,
 				9C31DA5921E92E7D00FA7F29 /* Assets.xcassets in Resources */,
 				9C31DAE021EA372C00FA7F29 /* Pacifico-Regular.ttf in Resources */,
@@ -553,8 +643,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C31DAF121EBE8CE00FA7F29 /* GenericResponse.swift in Sources */,
 				9C31DAB621E948A800FA7F29 /* MainTabsPresenter.swift in Sources */,
 				9C31DAA321E9329600FA7F29 /* ViperComponent.swift in Sources */,
+				9C31DAF721EBEAAF00FA7F29 /* NetworkManager.swift in Sources */,
 				9C31DAA421E9329600FA7F29 /* AppModules.swift in Sources */,
 				9C31DAD421E948FD00FA7F29 /* AboutView.swift in Sources */,
 				9C31DAD021E948FD00FA7F29 /* AboutPresenter.swift in Sources */,
@@ -564,13 +656,17 @@
 				9C31DAA721E9329600FA7F29 /* Presenter.swift in Sources */,
 				9C31DAA921E9329600FA7F29 /* Module.swift in Sources */,
 				9C31DAB921E948A800FA7F29 /* MainTabsInteractor.swift in Sources */,
+				9C31DAE721EB802900FA7F29 /* UITableViewCell+UICollectionViewCell+RegisterCell.swift in Sources */,
+				9C31DAFD21EBFA5300FA7F29 /* BannersViewModel.swift in Sources */,
 				9C31DAD621E94EC800FA7F29 /* AppDelegate+Apparence.swift in Sources */,
 				9C31DAAB21E9329600FA7F29 /* DisplayData.swift in Sources */,
 				9C31DAA821E9329600FA7F29 /* Router.swift in Sources */,
 				9C31DA5221E92E7C00FA7F29 /* AppDelegate.swift in Sources */,
+				9C31DB0221ECAFC000FA7F29 /* LoadingView.swift in Sources */,
 				9C31DAC521E948DE00FA7F29 /* HomeModuleApi.swift in Sources */,
 				9C31DAA521E9329600FA7F29 /* String+Localized.swift in Sources */,
 				9C31DAAC21E9329600FA7F29 /* ViperitModule.swift in Sources */,
+				9C31DAF421EBEA4200FA7F29 /* Categoria.swift in Sources */,
 				9C31DAA621E9329600FA7F29 /* Interactor.swift in Sources */,
 				9C31DAD121E948FD00FA7F29 /* AboutRouter.swift in Sources */,
 				9C31DAA221E9329600FA7F29 /* ViperitError.swift in Sources */,
@@ -578,13 +674,17 @@
 				9C31DAC421E948DE00FA7F29 /* HomeRouter.swift in Sources */,
 				9C31DAAF21E93D1000FA7F29 /* UIViewController+UINavigation.swift in Sources */,
 				9C31DAD821EA15FA00FA7F29 /* UIColor+HexDecimal.swift in Sources */,
+				9C31DAEC21EBE5BD00FA7F29 /* HomeRemoteDataManager.swift in Sources */,
 				9C31DAD321E948FD00FA7F29 /* AboutInteractor.swift in Sources */,
 				9C31DAAA21E9329600FA7F29 /* UserInterface.swift in Sources */,
 				9C31DAC621E948DE00FA7F29 /* HomeInteractor.swift in Sources */,
 				9C31DAC721E948DE00FA7F29 /* HomeView.swift in Sources */,
 				9C31DAB821E948A800FA7F29 /* MainTabsModuleApi.swift in Sources */,
 				9C31DAB721E948A800FA7F29 /* MainTabsRouter.swift in Sources */,
+				9C31DAF521EBEA4200FA7F29 /* Payload.swift in Sources */,
 				9C31DADD21EA1A8000FA7F29 /* ServiceConstants.swift in Sources */,
+				9C31DAFB21EBFA4300FA7F29 /* BannersListViewModel.swift in Sources */,
+				9C31DAE421EB7F5700FA7F29 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
