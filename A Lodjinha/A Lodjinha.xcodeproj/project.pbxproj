@@ -63,8 +63,8 @@
 		9C31DB0221ECAFC000FA7F29 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DB0121ECAFC000FA7F29 /* LoadingView.swift */; };
 		9C31DB0421ECB24D00FA7F29 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DB0321ECB24D00FA7F29 /* CategoryListViewModel.swift */; };
 		9C31DB0621ECB25E00FA7F29 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DB0521ECB25E00FA7F29 /* CategoryViewModel.swift */; };
-		9C31DB0E21ED0A6800FA7F29 /* BestSellersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DB0C21ED0A6800FA7F29 /* BestSellersCell.swift */; };
-		9C31DB0F21ED0A6800FA7F29 /* BestSellersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C31DB0D21ED0A6800FA7F29 /* BestSellersCell.xib */; };
+		9C31DB1221ED128D00FA7F29 /* BestSellersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DB1021ED128D00FA7F29 /* BestSellersCell.swift */; };
+		9C31DB1321ED128D00FA7F29 /* BestSellersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C31DB1121ED128D00FA7F29 /* BestSellersCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,8 +148,8 @@
 		9C31DB0121ECAFC000FA7F29 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9C31DB0321ECB24D00FA7F29 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 		9C31DB0521ECB25E00FA7F29 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
-		9C31DB0C21ED0A6800FA7F29 /* BestSellersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellersCell.swift; sourceTree = "<group>"; };
-		9C31DB0D21ED0A6800FA7F29 /* BestSellersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BestSellersCell.xib; sourceTree = "<group>"; };
+		9C31DB1021ED128D00FA7F29 /* BestSellersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellersCell.swift; sourceTree = "<group>"; };
+		9C31DB1121ED128D00FA7F29 /* BestSellersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BestSellersCell.xib; sourceTree = "<group>"; };
 		A4574858438B357122B42472 /* Pods-A Lodjinha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Lodjinha.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Lodjinha/Pods-A Lodjinha.release.xcconfig"; sourceTree = "<group>"; };
 		C6961FFBF071B896C68438D2 /* Pods-A LodjinhaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A LodjinhaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A LodjinhaTests/Pods-A LodjinhaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDBF172D0AC9A809EE413478 /* Pods-A Lodjinha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Lodjinha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Lodjinha/Pods-A Lodjinha.debug.xcconfig"; sourceTree = "<group>"; };
@@ -363,8 +363,8 @@
 			children = (
 				9C31DAE221EB7F5700FA7F29 /* CategoryCell.swift */,
 				9C31DAE321EB7F5700FA7F29 /* CategoryCell.xib */,
-				9C31DB0C21ED0A6800FA7F29 /* BestSellersCell.swift */,
-				9C31DB0D21ED0A6800FA7F29 /* BestSellersCell.xib */,
+				9C31DB1021ED128D00FA7F29 /* BestSellersCell.swift */,
+				9C31DB1121ED128D00FA7F29 /* BestSellersCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -557,7 +557,7 @@
 				9C31DAE521EB7F5700FA7F29 /* CategoryCell.xib in Resources */,
 				9C31DACF21E948FD00FA7F29 /* About.storyboard in Resources */,
 				9C31DA5921E92E7D00FA7F29 /* Assets.xcassets in Resources */,
-				9C31DB0F21ED0A6800FA7F29 /* BestSellersCell.xib in Resources */,
+				9C31DB1321ED128D00FA7F29 /* BestSellersCell.xib in Resources */,
 				9C31DAE021EA372C00FA7F29 /* Pacifico-Regular.ttf in Resources */,
 				9C31DA5721E92E7C00FA7F29 /* Main.storyboard in Resources */,
 				9C31DAC221E948DE00FA7F29 /* Home.storyboard in Resources */,
@@ -674,7 +674,7 @@
 				9C31DAC321E948DE00FA7F29 /* HomePresenter.swift in Sources */,
 				9C31DAD221E948FD00FA7F29 /* AboutModuleApi.swift in Sources */,
 				9C31DADB21EA19FE00FA7F29 /* HexColor.swift in Sources */,
-				9C31DB0E21ED0A6800FA7F29 /* BestSellersCell.swift in Sources */,
+				9C31DB1221ED128D00FA7F29 /* BestSellersCell.swift in Sources */,
 				9C31DAA721E9329600FA7F29 /* Presenter.swift in Sources */,
 				9C31DAA921E9329600FA7F29 /* Module.swift in Sources */,
 				9C31DAB921E948A800FA7F29 /* MainTabsInteractor.swift in Sources */,

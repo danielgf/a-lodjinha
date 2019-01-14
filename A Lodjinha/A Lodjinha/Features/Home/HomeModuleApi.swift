@@ -16,7 +16,7 @@ protocol HomeRouterApi: RouterProtocol {
 protocol HomeViewApi: UserInterfaceProtocol {
     func showAlert(message: String)
     func updateBanners(bannerViewModel: GenericListViewModel)
-    func updateCategory(categoryViewModel: CategoryListViewModel)
+    func updateCategory(categoryViewModel: GenericListViewModel)
     func updateProducts(productsViewModel: GenericListViewModel)
     func updatebestSellers(bestSellersViewModel: GenericListViewModel)
 }
@@ -28,7 +28,7 @@ protocol HomePresenterApi: PresenterProtocol {
     func didFailLoading()
     
     func getCategory()
-    func didFinishLoadingCategory(categoryViewModel: CategoryListViewModel)
+    func didFinishLoadingCategory(categoryViewModel: GenericListViewModel)
     
     func getProducts()
     func didFinishLoadingProducts(productsViewModel: GenericListViewModel)

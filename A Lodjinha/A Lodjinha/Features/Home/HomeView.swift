@@ -14,7 +14,7 @@ final class HomeView: UserInterface {
     
     // MARK: - Variables
     var bannerViewModel = GenericListViewModel()
-    var categoryViewModel = CategoryListViewModel()
+    var categoryViewModel = GenericListViewModel()
     var bestSellersViewModel = GenericListViewModel()
     var productsViewModel = GenericListViewModel()
     var productViewModel = GenericListViewModel()
@@ -23,12 +23,13 @@ final class HomeView: UserInterface {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Life Cicle
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.registerNibCell(CategoryCell.self)
-        collectionView.registerNibCell(BestSellersCell.self)
+        tableView.registerNibCell(BestSellersCell.self)
         pageControl.numberOfPages = bannerViewModel.numberOfItems
     }
     
@@ -77,9 +78,8 @@ extension HomeView: HomeViewApi {
         presenter.getCategory()
     }
     
-    func updateCategory(categoryViewModel: CategoryListViewModel) {
+    func updateCategory(categoryViewModel: GenericListViewModel) {
         self.categoryViewModel = categoryViewModel
-        collectionView.reloadData()
         presenter.getProducts()
     }
     
@@ -90,6 +90,8 @@ extension HomeView: HomeViewApi {
     
     func updatebestSellers(bestSellersViewModel: GenericListViewModel) {
         self.bestSellersViewModel = bestSellersViewModel
+        tableView.reloadData()
+        collectionView.reloadData()
         LoadingView.shared.hideActivityIndicatory(view: view)
     }
 }
@@ -98,41 +100,42 @@ extension HomeView: HomeViewApi {
 extension HomeView: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        let pageNumber = round(scrollView.contentOffset.x / self.scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
     }
 }
 
+// MARK: - UICollectionView API
 extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return categoryViewModel.numberOfItems
-        } else {
-            return bestSellersViewModel.numberOfItems
-        }
+        return categoryViewModel.numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.cellReuseId(), for: indexPath) as? CategoryCell {
-                cell.backgroundColor = .red
-                return cell
-            }
-        } else {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BestSellersCell.cellReuseId(), for: indexPath) as? BestSellersCell {
-                cell.backgroundColor = .black
-                return cell
-            }
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.cellReuseId(), for: indexPath) as? CategoryCell {
+            cell.viewModel = categoryViewModel.itemViewModel(indexPath: indexPath)
+            return cell
         }
         
         return UICollectionViewCell()
     }
+}
+
+// MARK: - UITableView API
+extension HomeView: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bestSellersViewModel.numberOfItems
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: BestSellersCell.cellReuseId(), for: indexPath) as? BestSellersCell {
+            cell.viewModel = bestSellersViewModel.itemViewModel(indexPath: indexPath)
+            return cell
+        }
+        return UITableViewCell()
+    }
     
 }
 

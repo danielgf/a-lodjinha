@@ -30,7 +30,7 @@ extension HomePresenter: HomePresenterApi {
         interactor.requestCategory()
     }
     
-    func didFinishLoadingCategory(categoryViewModel: CategoryListViewModel) {
+    func didFinishLoadingCategory(categoryViewModel: GenericListViewModel) {
         view.updateCategory(categoryViewModel: categoryViewModel)
     }
     

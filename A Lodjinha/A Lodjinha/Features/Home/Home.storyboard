@@ -12,6 +12,7 @@
         <!--Home View-->
         <scene sceneID="htw-l1-ahc">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nXm-AG-NXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HomeView" id="xqD-av-Raz" customClass="HomeView" customModule="A_Lodjinha" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EcR-ye-kTk"/>
@@ -32,13 +33,16 @@
                                 <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Quu-oh-L8I">
-                                <rect key="frame" x="0.0" y="156" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="200.5" width="375" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vfi-mF-14R">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Vo2-Yh-J3D"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vfi-mF-14R">
+                                    <size key="itemSize" width="113" height="115"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                                 <connections>
@@ -46,18 +50,65 @@
                                     <outlet property="delegate" destination="xqD-av-Raz" id="hDx-gh-Gf8"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categorias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTq-hK-NZ5">
+                                <rect key="frame" x="16" y="164" width="85" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEg-er-349">
+                                <rect key="frame" x="0.0" y="191.5" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="mhv-nZ-uOi"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cML-Hr-eiV">
+                                <rect key="frame" x="0.0" y="336.5" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="GQE-e7-12V"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="80I-5m-8vc">
+                                <rect key="frame" x="0.0" y="381.5" width="375" height="285.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xqD-av-Raz" id="vF5-oy-BD8"/>
+                                    <outlet property="delegate" destination="xqD-av-Raz" id="PGx-DN-kc2"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mais Vendidos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTG-Uz-Sa0">
+                                <rect key="frame" x="16" y="345.5" width="113" height="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Quu-oh-L8I" firstAttribute="top" secondItem="plc-nf-HiK" secondAttribute="bottom" id="BC6-2B-2ua"/>
+                            <constraint firstAttribute="trailing" secondItem="cML-Hr-eiV" secondAttribute="trailing" id="3Zs-ql-vgG"/>
+                            <constraint firstItem="cML-Hr-eiV" firstAttribute="top" secondItem="Quu-oh-L8I" secondAttribute="bottom" constant="8" id="5H5-ra-DGY"/>
+                            <constraint firstItem="Quu-oh-L8I" firstAttribute="top" secondItem="SEg-er-349" secondAttribute="bottom" constant="8" id="5Vu-ib-hbW"/>
+                            <constraint firstItem="80I-5m-8vc" firstAttribute="top" secondItem="JTG-Uz-Sa0" secondAttribute="bottom" constant="16" id="8lM-eX-VeK"/>
                             <constraint firstItem="plc-nf-HiK" firstAttribute="centerX" secondItem="PE9-Sa-UNo" secondAttribute="centerX" id="BG9-iH-VoA"/>
                             <constraint firstItem="Quu-oh-L8I" firstAttribute="leading" secondItem="kgt-o0-aP8" secondAttribute="leading" id="GIS-2X-es2"/>
-                            <constraint firstItem="vb6-4r-Epx" firstAttribute="top" secondItem="Quu-oh-L8I" secondAttribute="bottom" id="NZm-F7-VGO"/>
+                            <constraint firstItem="cML-Hr-eiV" firstAttribute="leading" secondItem="kgt-o0-aP8" secondAttribute="leading" id="KWm-6g-cal"/>
+                            <constraint firstItem="vb6-4r-Epx" firstAttribute="top" secondItem="80I-5m-8vc" secondAttribute="bottom" id="LJV-sT-1wT"/>
+                            <constraint firstAttribute="trailing" secondItem="80I-5m-8vc" secondAttribute="trailing" id="OcE-7t-fup"/>
+                            <constraint firstItem="JTG-Uz-Sa0" firstAttribute="leading" secondItem="kgt-o0-aP8" secondAttribute="leading" constant="16" id="TjI-6F-smx"/>
+                            <constraint firstItem="JTG-Uz-Sa0" firstAttribute="top" secondItem="cML-Hr-eiV" secondAttribute="bottom" constant="8" id="YJg-hl-qXY"/>
+                            <constraint firstItem="pTq-hK-NZ5" firstAttribute="top" secondItem="plc-nf-HiK" secondAttribute="bottom" constant="8" id="am2-54-FUw"/>
+                            <constraint firstItem="SEg-er-349" firstAttribute="leading" secondItem="kgt-o0-aP8" secondAttribute="leading" id="ass-9G-14O"/>
                             <constraint firstItem="plc-nf-HiK" firstAttribute="leading" secondItem="kgt-o0-aP8" secondAttribute="leading" id="bBO-Ih-6iR"/>
                             <constraint firstItem="PE9-Sa-UNo" firstAttribute="top" secondItem="EcR-ye-kTk" secondAttribute="bottom" constant="99" id="bdh-Ng-pSz"/>
+                            <constraint firstItem="80I-5m-8vc" firstAttribute="leading" secondItem="kgt-o0-aP8" secondAttribute="leading" id="f8W-EN-1SM"/>
+                            <constraint firstItem="pTq-hK-NZ5" firstAttribute="leading" secondItem="kgt-o0-aP8" secondAttribute="leading" constant="16" id="fac-gx-w7r"/>
+                            <constraint firstAttribute="trailing" secondItem="SEg-er-349" secondAttribute="trailing" id="oU6-SL-grW"/>
                             <constraint firstItem="plc-nf-HiK" firstAttribute="top" secondItem="EcR-ye-kTk" secondAttribute="bottom" id="qej-Pb-d7F"/>
                             <constraint firstItem="plc-nf-HiK" firstAttribute="bottom" secondItem="PE9-Sa-UNo" secondAttribute="bottom" id="ug0-L2-FWd"/>
                             <constraint firstAttribute="trailing" secondItem="plc-nf-HiK" secondAttribute="trailing" id="xnA-Nm-y7C"/>
+                            <constraint firstItem="SEg-er-349" firstAttribute="top" secondItem="pTq-hK-NZ5" secondAttribute="bottom" constant="8" id="xoX-Xt-8eI"/>
                             <constraint firstAttribute="trailing" secondItem="Quu-oh-L8I" secondAttribute="trailing" id="zg9-Xg-flo"/>
                         </constraints>
                     </view>
@@ -65,9 +116,9 @@
                         <outlet property="collectionView" destination="Quu-oh-L8I" id="G5L-pi-76u"/>
                         <outlet property="pageControl" destination="PE9-Sa-UNo" id="nIc-Q8-hm7"/>
                         <outlet property="scrollView" destination="plc-nf-HiK" id="jU0-kn-fIE"/>
+                        <outlet property="tableView" destination="80I-5m-8vc" id="NqW-hp-eca"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nXm-AG-NXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="293.60000000000002" y="355.7721139430285"/>
         </scene>

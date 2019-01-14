@@ -21,8 +21,8 @@ extension HomeInteractor: HomeInteractorApi {
     }
     
     func requestCategory() {
-        HomeRemoteDataManager.getCategory { (categogies) in
-            categogies.count == 0 ? self.presenter.didFailLoading() : self.presenter.didFinishLoadingCategory(categoryViewModel: CategoryListViewModel(categogies))
+        HomeRemoteDataManager.getApiInformation(endPoint: ServiceConstants.UrlParts.categoty.rawValue) { (categogies) in
+            categogies.count == 0 ? self.presenter.didFailLoading() : self.presenter.didFinishLoadingCategory(categoryViewModel: GenericListViewModel(categogies))
         }
     }
     
