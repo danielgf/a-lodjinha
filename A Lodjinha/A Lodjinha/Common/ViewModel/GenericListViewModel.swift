@@ -8,11 +8,11 @@
 
 import Foundation
 
-class BannersListViewModel {
+class GenericListViewModel {
 
     // MARK: - Properties
 
-    fileprivate var itemsViewModels = [IndexPath: BannersViewModel]()
+    fileprivate var itemsViewModels = [IndexPath: GenericViewModel]()
 
     var numberOfItems: Int { return itemsViewModels.count }
     
@@ -20,15 +20,15 @@ class BannersListViewModel {
     
     convenience init(_ objects: [Payload]) {
         self.init()
-        self.itemsViewModels = objects.enumerated().reduce(into: [IndexPath: BannersViewModel]()) {
+        self.itemsViewModels = objects.enumerated().reduce(into: [IndexPath: GenericViewModel]()) {
             let newIndexPath = IndexPath(row: $1.offset, section: 0)
-            $0[newIndexPath] = BannersViewModel($1.element)
+            $0[newIndexPath] = GenericViewModel($1.element)
         }
     }
 
     // MARK: - View Model
     
-    func itemViewModel(indexPath: IndexPath) -> BannersViewModel? {
+    func itemViewModel(indexPath: IndexPath) -> GenericViewModel? {
         if itemsViewModels.keys.contains(indexPath) {
             return itemsViewModels[indexPath]
         }

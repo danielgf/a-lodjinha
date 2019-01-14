@@ -9,15 +9,24 @@
 import Foundation
 
 typealias HomeCompletion = ([Payload]) -> Void
-typealias HomeCategoryCompletion = ([Category]) -> Void
+typealias HomeCategoryCompletion = ([Categoria]) -> Void
 
 class HomeRemoteDataManager {
     
-    class func getBanner(completion: @escaping HomeCompletion) {
+    class func getApiInformation(endPoint: String, _ productId: String? = nil, completion: @escaping HomeCompletion) {
         
-        guard let url = URL(string: ServiceConstants.UrlParts.baseURL.rawValue + ServiceConstants.UrlParts.banner.rawValue) else {return}
+        var url: URL?
         
-        NetworkManager.request(url: url, method: .get, handleObject: { (json) in
+        if let id = productId {
+            let newFinalURL = ServiceConstants.UrlParts.singleProduct.rawValue.replacingOccurrences(of: ServiceConstants.UrlParam.Key.productId, with: id)
+            url = URL(string: ServiceConstants.UrlParts.baseURL.rawValue + newFinalURL)
+        } else {
+            url = URL(string: ServiceConstants.UrlParts.baseURL.rawValue + endPoint)
+        }
+        
+        guard let newURL = url else { return }
+        
+        NetworkManager.request(url: newURL, method: .get, handleObject: { (json) in
             var object = [Payload]()
             let payload = GenericResponse(json: json).payload ?? []
             payload.forEach({ object.append($0) })
@@ -30,17 +39,17 @@ class HomeRemoteDataManager {
     
     class func getCategory(completion: @escaping HomeCategoryCompletion) {
         
-    }
-    
-    class func getProducts(completion: @escaping HomeCompletion) {
+        guard let url = URL(string: ServiceConstants.UrlParts.baseURL.rawValue + ServiceConstants.UrlParts.categoty.rawValue) else {return}
         
-    }
-    
-    class func getBestSellers(completion: @escaping HomeCompletion) {
-        
-    }
-    
-    class func getSingleProduct(productID: String, completion: @escaping HomeCompletion) {
+        NetworkManager.request(url: url, method: .get, handleObject: { (json) in
+            var object = [Categoria]()
+            let payload = GenericResponse(json: json).payload ?? []
+            let category = payload.map({ Categoria(object: $0) })
+            category.forEach({ object.append($0) })
+            completion(object)
+        }) { (error) in
+            completion([])
+        }
         
     }
     

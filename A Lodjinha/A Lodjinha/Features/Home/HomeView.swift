@@ -13,7 +13,11 @@ import SDWebImage
 final class HomeView: UserInterface {
     
     // MARK: - Variables
-    var bannerViewModel = BannersListViewModel()
+    var bannerViewModel = GenericListViewModel()
+    var categoryViewModel = CategoryListViewModel()
+    var bestSellersViewModel = GenericListViewModel()
+    var productsViewModel = GenericListViewModel()
+    var productViewModel = GenericListViewModel()
         
     // MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView!
@@ -24,6 +28,7 @@ final class HomeView: UserInterface {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.registerNibCell(CategoryCell.self)
+        collectionView.registerNibCell(BestSellersCell.self)
         pageControl.numberOfPages = bannerViewModel.numberOfItems
     }
     
@@ -38,7 +43,6 @@ final class HomeView: UserInterface {
         LoadingView.shared.showActivityIndicatory(view: view)
         presenter.getBanner()
     }
-    
     
     fileprivate func updateScrollView() {
         pageControl.numberOfPages = bannerViewModel.numberOfItems
@@ -67,10 +71,26 @@ extension HomeView: HomeViewApi {
         print(message)
     }
     
-    func updateBanners(bannerViewModel: BannersListViewModel) {
-        LoadingView.shared.hideActivityIndicatory(view: view)
+    func updateBanners(bannerViewModel: GenericListViewModel) {
         self.bannerViewModel = bannerViewModel
         updateScrollView()
+        presenter.getCategory()
+    }
+    
+    func updateCategory(categoryViewModel: CategoryListViewModel) {
+        self.categoryViewModel = categoryViewModel
+        collectionView.reloadData()
+        presenter.getProducts()
+    }
+    
+    func updateProducts(productsViewModel: GenericListViewModel) {
+        self.productsViewModel = productsViewModel
+        presenter.getBestSellers()
+    }
+    
+    func updatebestSellers(bestSellersViewModel: GenericListViewModel) {
+        self.bestSellersViewModel = bestSellersViewModel
+        LoadingView.shared.hideActivityIndicatory(view: view)
     }
 }
 
@@ -85,15 +105,31 @@ extension HomeView: UIScrollViewDelegate {
 
 extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return categoryViewModel.numberOfItems
+        } else {
+            return bestSellersViewModel.numberOfItems
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.cellReuseId(), for: indexPath) as? CategoryCell {
-            cell.backgroundColor = .red
-            return cell
+        if indexPath.section == 0 {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.cellReuseId(), for: indexPath) as? CategoryCell {
+                cell.backgroundColor = .red
+                return cell
+            }
+        } else {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BestSellersCell.cellReuseId(), for: indexPath) as? BestSellersCell {
+                cell.backgroundColor = .black
+                return cell
+            }
         }
+        
         return UICollectionViewCell()
     }
     

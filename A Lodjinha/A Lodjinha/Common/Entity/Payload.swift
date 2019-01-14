@@ -26,10 +26,10 @@ public final class Payload: NSCoding {
   public var urlImagem: String?
   public var id: Int?
   public var descricao: String?
-  public var precoDe: Int?
+  public var precoDe: Double?
   public var categoria: Categoria?
   public var nome: String?
-  public var precoPor: Float?
+  public var precoPor: Double?
   public var linkUrl: String?
 
   // MARK: SwiftyJSON Initializers
@@ -48,10 +48,10 @@ public final class Payload: NSCoding {
     urlImagem = json[SerializationKeys.urlImagem].string
     id = json[SerializationKeys.id].int
     descricao = json[SerializationKeys.descricao].string
-    precoDe = json[SerializationKeys.precoDe].int
+    precoDe = json[SerializationKeys.precoDe].double
     categoria = Categoria(json: json[SerializationKeys.categoria])
     nome = json[SerializationKeys.nome].string
-    precoPor = json[SerializationKeys.precoPor].float
+    precoPor = json[SerializationKeys.precoPor].double
     linkUrl = json[SerializationKeys.linkUrl].string
   }
 
@@ -76,10 +76,10 @@ public final class Payload: NSCoding {
     self.urlImagem = aDecoder.decodeObject(forKey: SerializationKeys.urlImagem) as? String
     self.id = aDecoder.decodeObject(forKey: SerializationKeys.id) as? Int
     self.descricao = aDecoder.decodeObject(forKey: SerializationKeys.descricao) as? String
-    self.precoDe = aDecoder.decodeObject(forKey: SerializationKeys.precoDe) as? Int
+    self.precoDe = aDecoder.decodeObject(forKey: SerializationKeys.precoDe) as? Double
     self.categoria = aDecoder.decodeObject(forKey: SerializationKeys.categoria) as? Categoria
     self.nome = aDecoder.decodeObject(forKey: SerializationKeys.nome) as? String
-    self.precoPor = aDecoder.decodeObject(forKey: SerializationKeys.precoPor) as? Float
+    self.precoPor = aDecoder.decodeObject(forKey: SerializationKeys.precoPor) as? Double
   }
 
   public func encode(with aCoder: NSCoder) {

@@ -18,13 +18,45 @@ extension HomePresenter: HomePresenterApi {
         interactor.requestBanner()
     }
     
-    func didFinishLoadingBaner(bannerViewModel: BannersListViewModel) {
+    func didFinishLoadingBaner(bannerViewModel: GenericListViewModel) {
         view.updateBanners(bannerViewModel: bannerViewModel)
     }
     
-    func didFailLoadingBanner() {
+    func didFailLoading() {
         view.showAlert(message: "error")
     }
+    
+    func getCategory() {
+        interactor.requestCategory()
+    }
+    
+    func didFinishLoadingCategory(categoryViewModel: CategoryListViewModel) {
+        view.updateCategory(categoryViewModel: categoryViewModel)
+    }
+    
+    func getProducts() {
+        interactor.requestProducts()
+    }
+    
+    func didFinishLoadingProducts(productsViewModel: GenericListViewModel) {
+        view.updateProducts(productsViewModel: productsViewModel)
+    }
+    
+    func getBestSellers() {
+        interactor.requestBestSellers()
+    }
+    
+    func didFinishLoadingBestSellers(bestSellersViewModel: GenericListViewModel) {
+        view.updatebestSellers(bestSellersViewModel: bestSellersViewModel)
+    }
+    
+    func getProduct(productId: String) {
+        interactor.requestProduct(productId: productId)
+    }
+    
+    func didFinishLoadingProduct(productViewModel: GenericListViewModel) {
+    }
+    
 }
 
 // MARK: - Home Viper Components
