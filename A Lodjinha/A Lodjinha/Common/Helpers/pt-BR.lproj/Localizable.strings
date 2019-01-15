@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  A Lodjinha
+
+  Created by Daniel Griso Filho on 1/15/19.
+  Copyright © 2019 Daniel Griso Filho. All rights reserved.
+*/
+
+"erroService" = "Problema no carregamento dos itens, por favor tente novamente!";
+"successReserve" = "Produto reservado com sucesso!";
+"failToReserve" = "Problema ao reservar o produto";
+"ok" = "Ok";

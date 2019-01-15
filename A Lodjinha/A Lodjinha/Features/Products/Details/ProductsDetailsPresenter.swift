@@ -22,6 +22,14 @@ extension ProductsDetailsPresenter: ProductsDetailsPresenterApi {
     func reserve(viewModel: GenericViewModel) {
         interactor.reserveProduct(id: viewModel.id)
     }
+    
+    func didSuccessReserved() {
+        view.showAlert(message: "successReserve".localized())
+    }
+    
+    func didFailReserved() {
+        view.showAlert(message: "failToReserve".localized())
+    }
 }
 
 // MARK: - ProductsDetails Viper Components

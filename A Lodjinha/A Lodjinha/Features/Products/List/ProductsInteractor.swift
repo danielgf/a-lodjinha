@@ -15,8 +15,8 @@ final class ProductsInteractor: Interactor {
 // MARK: - ProductsInteractor API
 extension ProductsInteractor: ProductsInteractorApi {
     func requestProductsByCategory(id: Int) {
-        RemoteDataManager.getApiInformation(endPoint: ServiceConstants.UrlParts.productByCategory.rawValue, nil, id) { (products) in
-            products.count == 0 ? self.presenter.didFailLoading() : self.presenter.didFinishLoadingProducts(productsViewModel: GenericListViewModel(products))
+        RemoteDataManager.getApiInformation(endPoint: ServiceConstants.UrlParts.productByCategory.rawValue, nil, id) { (products, status)  in
+            !status ? self.presenter.didFailLoading() : self.presenter.didFinishLoadingProducts(productsViewModel: GenericListViewModel(products))
         }
     }
 }

@@ -51,6 +51,7 @@ final class ProductsDetailsView: UserInterface {
     
     // MARK: - Actions
     @IBAction func reserve(_ sender: UIButton) {
+        LoadingView.shared.showActivityIndicatory(view: view)
         presenter.reserve(viewModel: viewModel)
     }
 }
@@ -59,6 +60,12 @@ final class ProductsDetailsView: UserInterface {
 extension ProductsDetailsView: ProductsDetailsViewApi {
     func receivedInfor(viewModel: GenericViewModel) {
         self.viewModel = viewModel
+    }
+    
+    func showAlert(message: String) {
+        LoadingView.shared.hideActivityIndicatory(view: view)
+        let alert = UIAlertController.showSimpleAlert(message: message)
+        present(alert, animated: true, completion: nil)
     }
 }
 

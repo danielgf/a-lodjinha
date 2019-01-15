@@ -27,7 +27,7 @@ extension ProductsPresenter: ProductsPresenterApi {
     }
     
     func didFailLoading() {
-        view.showAlert(message: "error")
+        view.showAlert(message: "erroService".localized())
     }
     
     func didFinishLoadingProducts(productsViewModel: GenericListViewModel) {

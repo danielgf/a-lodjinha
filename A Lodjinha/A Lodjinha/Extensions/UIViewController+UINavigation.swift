@@ -17,7 +17,6 @@ extension UIViewController {
     func embedInNavigationController() -> UINavigationController {
         return UINavigationController(rootViewController: self)
     }
-    
 }
 
 extension UINavigationController {
@@ -41,5 +40,15 @@ extension UINavigationController {
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return topViewController?.preferredStatusBarStyle ?? .default
+    }
+}
+
+extension UIAlertController {
+    
+    static func showSimpleAlert(_ title: String? = "", message: String, handle: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let firstButton = UIAlertAction(title: "ok".localized(), style: .default, handler: handle)
+        alertController.addAction(firstButton)
+        return alertController
     }
 }

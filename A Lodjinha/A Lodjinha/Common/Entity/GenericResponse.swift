@@ -13,10 +13,12 @@ public final class GenericResponse: NSCoding {
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private struct SerializationKeys {
     static let data = "data"
+    static let result = "result"
   }
 
   // MARK: Properties
   public var payload: [Payload]?
+    public var result: String?
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.
@@ -32,6 +34,7 @@ public final class GenericResponse: NSCoding {
   /// - parameter json: JSON object from SwiftyJSON.
   public required init(json: JSON) {
     if let items = json[SerializationKeys.data].array { payload = items.map { Payload(json: $0) } }
+    result = json[SerializationKeys.result].string
   }
 
   /// Generates description of the object in the form of a NSDictionary.
@@ -40,16 +43,19 @@ public final class GenericResponse: NSCoding {
   public func dictionaryRepresentation() -> [String: Any] {
     var dictionary: [String: Any] = [:]
     if let value = payload { dictionary[SerializationKeys.data] = value.map { $0.dictionaryRepresentation() } }
+    if let value = result { dictionary[SerializationKeys.result] = value }
     return dictionary
   }
 
   // MARK: NSCoding Protocol
   required public init(coder aDecoder: NSCoder) {
     self.payload = aDecoder.decodeObject(forKey: SerializationKeys.data) as? [Payload]
+    self.result = aDecoder.decodeObject(forKey: SerializationKeys.result) as? String
   }
 
   public func encode(with aCoder: NSCoder) {
     aCoder.encode(payload, forKey: SerializationKeys.data)
+    aCoder.encode(result, forKey: SerializationKeys.result)
   }
 
 }

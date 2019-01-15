@@ -8,7 +8,8 @@
 
 import Foundation
 
-typealias RemoteCompletion = ([Payload]) -> Void
+typealias RemoteCompletion = ([Payload], Bool) -> Void
+typealias RemoteSaveCompletion = (Bool) -> Void
 
 class RemoteDataManager {
     
@@ -33,11 +34,22 @@ class RemoteDataManager {
             object.removeAll()
             let payload = GenericResponse(json: json).payload ?? []
             payload.forEach({ object.append($0) })
-            completion(object)
+            completion(object, true)
         }) { (error) in
-            completion([])
+            completion([], false)
         }
         
+    }
+    
+    class func postApiInformation(endPoint: String, productId: String, completion: @escaping RemoteSaveCompletion) {
+        
+        guard let url = URL(string: ServiceConstants.UrlParts.baseURL.rawValue + endPoint) else { return }
+        
+        NetworkManager.request(url: url, method: .post, handleObject: { (json) in
+            completion(true)
+        }) { (error) in
+            completion(false)
+        }
     }
     
 }

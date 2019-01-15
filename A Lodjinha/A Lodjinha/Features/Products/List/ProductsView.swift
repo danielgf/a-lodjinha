@@ -43,7 +43,8 @@ extension ProductsView: ProductsViewApi {
     
     func showAlert(message: String) {
         LoadingView.shared.hideActivityIndicatory(view: view)
-        print(message)
+        let alert = UIAlertController.showSimpleAlert(message: message)
+        present(alert, animated: true, completion: nil)
     }
     
     func receivedInformation(viewModel: GenericViewModel) {

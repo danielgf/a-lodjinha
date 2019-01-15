@@ -15,11 +15,14 @@ protocol ProductsDetailsRouterApi: RouterProtocol {
 //MARK: - ProductsDetailsView API
 protocol ProductsDetailsViewApi: UserInterfaceProtocol {
     func receivedInfor(viewModel: GenericViewModel)
+    func showAlert(message: String)
 }
 
 //MARK: - ProductsDetailsPresenter API
 protocol ProductsDetailsPresenterApi: PresenterProtocol {
     func reserve(viewModel: GenericViewModel)
+    func didSuccessReserved()
+    func didFailReserved()
 }
 
 //MARK: - ProductsDetailsInteractor API

@@ -70,7 +70,9 @@ final class HomeView: UserInterface {
 //MARK: - HomeView API
 extension HomeView: HomeViewApi {
     func showAlert(message: String) {
-        print(message)
+        LoadingView.shared.hideActivityIndicatory(view: view)
+        let alert = UIAlertController.showSimpleAlert(message: message)
+        present(alert, animated: true, completion: nil)
     }
     
     func updateBanners(bannerViewModel: GenericListViewModel) {

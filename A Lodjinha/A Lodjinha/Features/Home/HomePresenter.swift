@@ -23,7 +23,7 @@ extension HomePresenter: HomePresenterApi {
     }
     
     func didFailLoading() {
-        view.showAlert(message: "error")
+        view.showAlert(message: "erroService".localized())
     }
     
     func getCategory() {
