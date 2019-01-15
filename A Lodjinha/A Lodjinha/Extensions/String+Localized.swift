@@ -19,6 +19,13 @@ extension String {
     func localized() -> String {
         return NSLocalizedString(self, comment: "")
     }
+    
+    var html2AttributedString: NSAttributedString? {
+        return Data(utf8).html2AttributedString
+    }
+    var html2String: String {
+        return html2AttributedString?.string ?? ""
+    }
 }
 
 func safeString(_ value: Any?) -> String {

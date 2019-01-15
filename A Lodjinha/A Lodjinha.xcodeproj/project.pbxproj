@@ -77,6 +77,7 @@
 		9C31DB2C21ED313C00FA7F29 /* ProductsDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DB2721ED313C00FA7F29 /* ProductsDetailsInteractor.swift */; };
 		9C31DB2D21ED313C00FA7F29 /* ProductsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DB2821ED313C00FA7F29 /* ProductsDetailsView.swift */; };
 		9C31DB3421EE3D6D00FA7F29 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C31DB3621EE3D6D00FA7F29 /* Localizable.strings */; };
+		9C31DB3F21EE936A00FA7F29 /* Data+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31DB3E21EE936A00FA7F29 /* Data+HTML.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		9C31DB3321EE3D5000FA7F29 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		9C31DB3521EE3D6D00FA7F29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9C31DB3721EE3D7000FA7F29 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9C31DB3E21EE936A00FA7F29 /* Data+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+HTML.swift"; sourceTree = "<group>"; };
 		A4574858438B357122B42472 /* Pods-A Lodjinha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Lodjinha.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Lodjinha/Pods-A Lodjinha.release.xcconfig"; sourceTree = "<group>"; };
 		C6961FFBF071B896C68438D2 /* Pods-A LodjinhaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A LodjinhaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A LodjinhaTests/Pods-A LodjinhaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDBF172D0AC9A809EE413478 /* Pods-A Lodjinha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Lodjinha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Lodjinha/Pods-A Lodjinha.debug.xcconfig"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				9C31DAAE21E93D1000FA7F29 /* UIViewController+UINavigation.swift */,
 				9C31DAD721EA15FA00FA7F29 /* UIColor+HexDecimal.swift */,
 				9C31DAE621EB802900FA7F29 /* UITableViewCell+UICollectionViewCell+RegisterCell.swift */,
+				9C31DB3E21EE936A00FA7F29 /* Data+HTML.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				9C31DAB621E948A800FA7F29 /* MainTabsPresenter.swift in Sources */,
 				9C31DAA321E9329600FA7F29 /* ViperComponent.swift in Sources */,
 				9C31DAF721EBEAAF00FA7F29 /* NetworkManager.swift in Sources */,
+				9C31DB3F21EE936A00FA7F29 /* Data+HTML.swift in Sources */,
 				9C31DAA421E9329600FA7F29 /* AppModules.swift in Sources */,
 				9C31DAD421E948FD00FA7F29 /* AboutView.swift in Sources */,
 				9C31DB1E21ED30F300FA7F29 /* ProductsModuleApi.swift in Sources */,

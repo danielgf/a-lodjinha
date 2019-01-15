@@ -17,15 +17,15 @@ struct ServiceConstants {
         case categoty = "/categoria"
         case products = "/produto"
         case bestSellers = "/produto/maisvendidos"
-        case singleProduct = "/produto/produtoId"
-        case productByCategory = "/produto?categoria=categoriaId"
+        case singleProduct = "/produto/{produtoId}"
+        case productByCategory = "/produto?categoriaId={categoriaId}"
     }
     
     struct UrlParam {
         
         struct Key {
-            static let productId = "produtoId"
-            static let categoryId = "categoriaId"
+            static let productId = "{produtoId}"
+            static let categoryId = "{categoriaId}"
         }
         
     }

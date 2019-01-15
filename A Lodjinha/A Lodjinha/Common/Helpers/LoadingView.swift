@@ -12,6 +12,7 @@ class LoadingView: UIView {
 
     private var container: UIView = UIView()
     private var loadingView: UIView = UIView()
+    private var activityView = UIView()
     private var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     static let shared = LoadingView()
     
@@ -33,15 +34,18 @@ class LoadingView: UIView {
         activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2)
         loadingView.addSubview(activityIndicator)
         container.addSubview(loadingView)
-        view.addSubview(container)
+        
+        
+        activityView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        activityView.alpha = 0.7
+        activityView.addSubview(container)
+        view.addSubview(activityView)
         activityIndicator.startAnimating()
-        view.isUserInteractionEnabled = false
     }
     
     func hideActivityIndicatory(view: UIView) {
         activityIndicator.stopAnimating()
-        container.removeFromSuperview()
-        view.isUserInteractionEnabled = true
+        activityView.removeFromSuperview()
     }
 
 

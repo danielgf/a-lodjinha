@@ -39,7 +39,7 @@ final class ProductsDetailsView: UserInterface {
         productNameLabel.text = viewModel.name
         newPriceLabel.text = String(format: "Por %.2f", viewModel.newPrice)
         categoryLabel.text = viewModel.categoryViewModel.description
-        descriptionLabel.text = viewModel.description
+        descriptionLabel.text = viewModel.description.html2String
         
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: String(format: "De: %.2f", viewModel.newPrice))
         attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))

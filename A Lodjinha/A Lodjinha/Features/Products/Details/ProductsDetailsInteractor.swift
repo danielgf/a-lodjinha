@@ -15,7 +15,7 @@ final class ProductsDetailsInteractor: Interactor {
 // MARK: - ProductsDetailsInteractor API
 extension ProductsDetailsInteractor: ProductsDetailsInteractorApi {
     func reserveProduct(id: Int) {
-        RemoteDataManager.postApiInformation(endPoint: ServiceConstants.UrlParts.productByCategory.rawValue, productId: String(id)) { (status) in
+        RemoteDataManager.postApiInformation(endPoint: ServiceConstants.UrlParts.singleProduct.rawValue, productId: String(id)) { (status) in
             status ? self.presenter.didSuccessReserved() : self.presenter.didFailReserved()
         }
     }

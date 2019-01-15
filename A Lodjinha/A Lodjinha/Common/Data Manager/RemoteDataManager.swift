@@ -43,7 +43,9 @@ class RemoteDataManager {
     
     class func postApiInformation(endPoint: String, productId: String, completion: @escaping RemoteSaveCompletion) {
         
-        guard let url = URL(string: ServiceConstants.UrlParts.baseURL.rawValue + endPoint) else { return }
+        let newFinalURL = ServiceConstants.UrlParts.singleProduct.rawValue.replacingOccurrences(of: ServiceConstants.UrlParam.Key.productId, with: String(productId))
+        
+        guard let url = URL(string: ServiceConstants.UrlParts.baseURL.rawValue + newFinalURL) else { return }
         
         NetworkManager.request(url: url, method: .post, handleObject: { (json) in
             completion(true)
