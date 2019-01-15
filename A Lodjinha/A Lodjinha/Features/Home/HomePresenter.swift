@@ -57,6 +57,14 @@ extension HomePresenter: HomePresenterApi {
     func didFinishLoadingProduct(productViewModel: GenericListViewModel) {
     }
     
+    func goToDetails(productViewModel: GenericViewModel) {
+        router.presentDetails(productViewModel: productViewModel)
+    }
+    
+    func goToProductsList(categoryViewModel: GenericViewModel) {
+        router.presentProductsList(categogyViewModel: categoryViewModel)
+    }
+    
 }
 
 // MARK: - Home Viper Components

@@ -10,6 +10,8 @@ import Foundation
 
 //MARK: - HomeRouter API
 protocol HomeRouterApi: RouterProtocol {
+    func presentDetails(productViewModel: GenericViewModel)
+    func presentProductsList(categogyViewModel: GenericViewModel)
 }
 
 //MARK: - HomeView API
@@ -38,6 +40,9 @@ protocol HomePresenterApi: PresenterProtocol {
     
     func getProduct(productId: String)
     func didFinishLoadingProduct(productViewModel: GenericListViewModel)
+    
+    func goToDetails(productViewModel: GenericViewModel)
+    func goToProductsList(categoryViewModel: GenericViewModel)
 }
 
 //MARK: - HomeInteractor API

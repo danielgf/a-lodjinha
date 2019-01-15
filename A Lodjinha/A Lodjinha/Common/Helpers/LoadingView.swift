@@ -35,11 +35,13 @@ class LoadingView: UIView {
         container.addSubview(loadingView)
         view.addSubview(container)
         activityIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
     }
     
     func hideActivityIndicatory(view: UIView) {
         activityIndicator.stopAnimating()
         container.removeFromSuperview()
+        view.isUserInteractionEnabled = true
     }
 
 

@@ -13,4 +13,6 @@ public enum AppModules: String, ViperitModule {
     case mainTabs
     case home
     case about
+    case products
+    case productsDetails
 }

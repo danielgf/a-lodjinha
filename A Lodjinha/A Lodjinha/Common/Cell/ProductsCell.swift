@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class BestSellersCell: UITableViewCell {
+class ProductsCell: UITableViewCell {
     
     // MARK: - Variables
     var viewModel: GenericViewModel! { didSet { updateUI() } }
@@ -38,8 +38,11 @@ class BestSellersCell: UITableViewCell {
     fileprivate func updateUI() {
         productImage.sd_setImage(with: URL(string: viewModel.urlImage), placeholderImage: #imageLiteral(resourceName: "Placeholder"), options: .refreshCached, context: nil)
         productNameLabel.text = viewModel.name
-        oldPriceLabel.text = "De: \(viewModel.oldPrice)"
         newPriceLabel.text = String(format: "Por %.2f", viewModel.newPrice)
+        
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: String(format: "De: %.2f", viewModel.newPrice))
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+        oldPriceLabel.attributedText = attributeString
     }
     
 }

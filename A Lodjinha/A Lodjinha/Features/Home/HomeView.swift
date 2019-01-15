@@ -17,7 +17,6 @@ final class HomeView: UserInterface {
     var categoryViewModel = GenericListViewModel()
     var bestSellersViewModel = GenericListViewModel()
     var productsViewModel = GenericListViewModel()
-    var productViewModel = GenericListViewModel()
         
     // MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView!
@@ -29,7 +28,7 @@ final class HomeView: UserInterface {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.registerNibCell(CategoryCell.self)
-        tableView.registerNibCell(BestSellersCell.self)
+        tableView.registerNibCell(ProductsCell.self)
         pageControl.numberOfPages = bannerViewModel.numberOfItems
     }
     
@@ -37,6 +36,8 @@ final class HomeView: UserInterface {
         super.viewWillAppear(animated)
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "LogoNavBar"))
         initialRequests()
+        navigationController?.navigationBar.tintColor = .white
+        tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Intenal Functions
@@ -100,8 +101,10 @@ extension HomeView: HomeViewApi {
 extension HomeView: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageNumber = round(scrollView.contentOffset.x / self.scrollView.frame.size.width)
-        pageControl.currentPage = Int(pageNumber)
+        if scrollView == self.scrollView {
+            let pageNumber = round(scrollView.contentOffset.x / self.scrollView.frame.size.width)
+            pageControl.currentPage = Int(pageNumber)
+        }
     }
 }
 
@@ -117,8 +120,13 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.viewModel = categoryViewModel.itemViewModel(indexPath: indexPath)
             return cell
         }
-        
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vm = categoryViewModel.itemViewModel(indexPath: indexPath) {
+            presenter.goToProductsList(categoryViewModel: vm)
+        }
     }
 }
 
@@ -130,11 +138,18 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: BestSellersCell.cellReuseId(), for: indexPath) as? BestSellersCell {
-            cell.viewModel = bestSellersViewModel.itemViewModel(indexPath: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: ProductsCell.cellReuseId(), for: indexPath) as? ProductsCell {
+            cell.viewModel = productsViewModel.itemViewModel(indexPath: indexPath)
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let vm = productsViewModel.itemViewModel(indexPath: indexPath) {
+            presenter.goToDetails(productViewModel: vm)
+        }
     }
     
 }
