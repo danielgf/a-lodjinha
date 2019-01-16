@@ -30,6 +30,10 @@ extension ProductsDetailsPresenter: ProductsDetailsPresenterApi {
     func didFailReserved() {
         view.showAlert(message: "failToReserve".localized())
     }
+    
+    func dismissView() {
+        router.pop(parentNeedsUpdate: false)
+    }
 }
 
 // MARK: - ProductsDetails Viper Components

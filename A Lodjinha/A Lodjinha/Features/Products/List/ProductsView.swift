@@ -13,6 +13,8 @@ final class ProductsView: TableUserInterface {
     
     // MARK: - Variables
     var productsViewModel = GenericListViewModel()
+    var receivedViewModel = GenericViewModel()
+    var offSet = 0
     
     // MARK: - Outlets
     
@@ -20,15 +22,19 @@ final class ProductsView: TableUserInterface {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerNibCell(ProductsCell.self)
-        LoadingView.shared.showActivityIndicatory(view: view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
+        LoadingView.shared.showActivityIndicatory(view: view)
+        requestProducts()
     }
     
     // MARK: - Intenal Functions
+    fileprivate func requestProducts() {
+        presenter.requestProductsByCategory(id: receivedViewModel.id, offSet: offSet)
+    }
     
     // MARK: - Actions
 }
@@ -49,6 +55,7 @@ extension ProductsView: ProductsViewApi {
     
     func receivedInformation(viewModel: GenericViewModel) {
         title = viewModel.description
+        receivedViewModel = viewModel
     }
 }
 
@@ -71,6 +78,13 @@ extension ProductsView {
         tableView.deselectRow(at: indexPath, animated: true)
         if let vm = productsViewModel.itemViewModel(indexPath: indexPath) {
             presenter.goToDetails(productViewModel: vm)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == productsViewModel.numberOfItems {
+            offSet += 20
+            requestProducts()
         }
     }
     

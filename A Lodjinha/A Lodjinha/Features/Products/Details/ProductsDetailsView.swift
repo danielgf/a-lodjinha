@@ -60,11 +60,14 @@ final class ProductsDetailsView: UserInterface {
 extension ProductsDetailsView: ProductsDetailsViewApi {
     func receivedInfor(viewModel: GenericViewModel) {
         self.viewModel = viewModel
+        title = viewModel.categoryDescription
     }
     
     func showAlert(message: String) {
         LoadingView.shared.hideActivityIndicatory(view: view)
-        let alert = UIAlertController.showSimpleAlert(message: message)
+        let alert = UIAlertController.showSimpleAlert(message: message) { _ in
+            self.presenter.dismissView()
+        }
         present(alert, animated: true, completion: nil)
     }
 }

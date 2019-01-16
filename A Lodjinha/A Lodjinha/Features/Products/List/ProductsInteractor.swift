@@ -10,13 +10,22 @@ import Foundation
 
 // MARK: - ProductsInteractor Class
 final class ProductsInteractor: Interactor {
+    var products = [Payload]()
 }
 
 // MARK: - ProductsInteractor API
 extension ProductsInteractor: ProductsInteractorApi {
-    func requestProductsByCategory(id: Int) {
-        RemoteDataManager.getApiInformation(endPoint: ServiceConstants.UrlParts.productByCategory.rawValue, nil, id) { (products, status)  in
-            !status ? self.presenter.didFailLoading() : self.presenter.didFinishLoadingProducts(productsViewModel: GenericListViewModel(products))
+    func requestProductsByCategory(id: Int, offSet: Int) {
+        RemoteDataManager.getApiInformation(endPoint: ServiceConstants.UrlParts.productByCategory.rawValue, nil, id, offSet) { (products, status)  in
+            
+            if status, products.count != 0 {
+                self.products.append(contentsOf: products)
+                self.presenter.didFinishLoadingProducts(productsViewModel: GenericListViewModel(self.products))
+            }else if products.count == 0 {
+                self.presenter.didGetAllProducts()
+            }else {
+                self.presenter.didFailLoading()
+            }
         }
     }
 }

@@ -20,9 +20,15 @@ class GenericListViewModel {
     
     convenience init(_ objects: [Payload]) {
         self.init()
-        self.itemsViewModels = objects.enumerated().reduce(into: [IndexPath: GenericViewModel]()) {
-            let newIndexPath = IndexPath(row: $1.offset, section: 0)
-            $0[newIndexPath] = GenericViewModel($1.element)
+        buildList(objects)
+    }
+    
+    // MARK: - Others
+    fileprivate func buildList(_ items: [Payload]) {
+        let itemsCount = itemsViewModels.count
+        for (i, item) in items.enumerated() {
+            let indexPath = IndexPath(row: i+itemsCount, section: 0)
+            itemsViewModels[indexPath] = GenericViewModel(item)
         }
     }
 

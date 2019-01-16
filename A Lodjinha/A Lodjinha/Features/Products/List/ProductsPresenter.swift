@@ -13,7 +13,6 @@ final class ProductsPresenter: Presenter {
     
     override func setupView(data: Any) {
         if let vm = data as? GenericViewModel {
-            requestProductsByCategory(id: vm.id)
             view.receivedInformation(viewModel: vm)
         }
     }
@@ -22,8 +21,8 @@ final class ProductsPresenter: Presenter {
 // MARK: - ProductsPresenter API
 extension ProductsPresenter: ProductsPresenterApi {
     
-    func requestProductsByCategory(id: Int) {
-        interactor.requestProductsByCategory(id: id)
+    func requestProductsByCategory(id: Int, offSet: Int) {
+        interactor.requestProductsByCategory(id: id, offSet: offSet)
     }
     
     func didFailLoading() {
@@ -36,6 +35,10 @@ extension ProductsPresenter: ProductsPresenterApi {
     
     func goToDetails(productViewModel: GenericViewModel) {
         router.presentDetails(productViewModel: productViewModel)
+    }
+    
+    func didGetAllProducts() {
+        view.showAlert(message: "noMoreProduct".localized())
     }
     
 }

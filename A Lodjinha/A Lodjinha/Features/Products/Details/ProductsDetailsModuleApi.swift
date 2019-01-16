@@ -23,6 +23,7 @@ protocol ProductsDetailsPresenterApi: PresenterProtocol {
     func reserve(viewModel: GenericViewModel)
     func didSuccessReserved()
     func didFailReserved()
+    func dismissView()
 }
 
 //MARK: - ProductsDetailsInteractor API

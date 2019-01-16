@@ -25,9 +25,11 @@ protocol ProductsPresenterApi: PresenterProtocol {
     func didFinishLoadingProducts(productsViewModel: GenericListViewModel)
     func didFailLoading()
     func goToDetails(productViewModel: GenericViewModel)
+    func requestProductsByCategory(id: Int, offSet: Int)
+    func didGetAllProducts()
 }
 
 //MARK: - ProductsInteractor API
 protocol ProductsInteractorApi: InteractorProtocol {
-    func requestProductsByCategory(id: Int)
+    func requestProductsByCategory(id: Int, offSet: Int)
 }

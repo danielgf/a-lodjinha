@@ -18,7 +18,7 @@ struct ServiceConstants {
         case products = "/produto"
         case bestSellers = "/produto/maisvendidos"
         case singleProduct = "/produto/{produtoId}"
-        case productByCategory = "/produto?categoriaId={categoriaId}"
+        case productByCategory = "/produto?offset={offSet}&limit=20&categoriaId={categoriaId}"
     }
     
     struct UrlParam {
@@ -26,6 +26,7 @@ struct ServiceConstants {
         struct Key {
             static let productId = "{produtoId}"
             static let categoryId = "{categoriaId}"
+            static let offSet = "{offSet}"
         }
         
     }

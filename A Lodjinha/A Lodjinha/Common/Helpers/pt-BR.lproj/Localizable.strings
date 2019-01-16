@@ -10,3 +10,4 @@
 "successReserve" = "Produto reservado com sucesso!";
 "failToReserve" = "Problema ao reservar o produto";
 "ok" = "Ok";
+"noMoreProduct" = "Todos os produtos carregados.";
