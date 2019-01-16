@@ -10,6 +10,8 @@ import XCTest
 
 class A_LodjinhaUITests: XCTestCase {
 
+    let app = XCUIApplication()
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -25,10 +27,17 @@ class A_LodjinhaUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testScrollView() {
+        let scrollView = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .scrollView).element
+        scrollView.swipeLeft()
+        scrollView.swipeRight()
+    }
+    
+    func testCollectionView() {
+        let cellsQuery = app.collectionViews.cells
+        cellsQuery.otherElements.containing(.staticText, identifier:"Games").element.tap()
+        app.navigationBars["Games"].buttons["Home"].tap()
     }
 
 }
